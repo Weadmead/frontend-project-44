@@ -1,6 +1,6 @@
 {
   "name": "@hexlet/code",
-  "version": "1.11.0",
+  "version": "1.12.0",
   "type": "module",
   "description": "hexlet mind-games",
   "main": "index.js",
@@ -9,7 +9,8 @@
   },
   "bin": {
     "brain-games": "bin/brain-games.js",
-    "brain-even": "bin/brain-even.js"
+    "brain-even": "bin/brain-even.js",
+    "brain-calc": "bin/brain-calc.js"
   },
   "author": "Rodion Kondakov",
   "license": "ISC",

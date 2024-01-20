@@ -5,4 +5,5 @@
 
 ## Demo
 
-Whatch [parityChekGame](https://asciinema.org/a/A9hBKiDqBsERTUZFXNa19pfU7)
+[parityChekGame](https://asciinema.org/a/A9hBKiDqBsERTUZFXNa19pfU7)
+[parityChekGame&CalcGame](https://asciinema.org/a/yjHzrvyA3wmHWLFP8sjE9TxRo)
