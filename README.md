@@ -8,3 +8,4 @@
 [parityChekGame](https://asciinema.org/a/A9hBKiDqBsERTUZFXNa19pfU7)
 [parityChekGame&CalcGame](https://asciinema.org/a/yjHzrvyA3wmHWLFP8sjE9TxRo)
 [gcdGame](https://asciinema.org/a/WoChlDi05LELvivyit4hj5Kgn)
+[progressionGame](https://asciinema.org/a/K6w7mzq6PbyuaBaIcH7zMcTH2)

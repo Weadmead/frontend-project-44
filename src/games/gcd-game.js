@@ -21,7 +21,7 @@ function checkAnswer(correctAnswer, userAnswer) {
 
 function startGame() {
   const playerName = greetPlayer();
-  console.log('What is the result of the expression?');
+  console.log('Find the greatest common divisor of given numbers.');
 
   for (let i = 0; i < 3; i += 1) {
     const { question, answer } = askQuestion();
