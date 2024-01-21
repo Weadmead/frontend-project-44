@@ -13,5 +13,11 @@ function getUserAnswer() {
   const userAnswer = readlineSync.question('Your answer: ');
   return userAnswer;
 }
-
-export { greetPlayer, getRandomNumber, getUserAnswer };
+function gameСonditions() {
+  return console.log(
+    'Answer "yes" if given number is prime. Otherwise answer "no".',
+  );
+}
+export {
+  greetPlayer, getRandomNumber, getUserAnswer, gameСonditions,
+};

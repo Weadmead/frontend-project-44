@@ -1,4 +1,9 @@
-import { greetPlayer, getRandomNumber, getUserAnswer } from '../index.js';
+import {
+  greetPlayer,
+  getRandomNumber,
+  getUserAnswer,
+  gameСonditions,
+} from '../index.js';
 
 function isEven(number) {
   return number % 2 === 0;
@@ -17,7 +22,7 @@ function checkAnswer(question, userAnswer) {
 
 function startGame() {
   const playerName = greetPlayer();
-  console.log('Answer "yes" if the number is even, otherwise answer "no".');
+  gameСonditions();
 
   for (let i = 0; i < 3; i += 1) {
     const question = askQuestion();

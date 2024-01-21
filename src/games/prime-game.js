@@ -1,4 +1,9 @@
-import { greetPlayer, getRandomNumber, getUserAnswer } from '../index.js';
+import {
+  greetPlayer,
+  getRandomNumber,
+  getUserAnswer,
+  gameСonditions,
+} from '../index.js';
 
 function isPrime(number) {
   if (number <= 1) return false;
@@ -21,7 +26,7 @@ function checkAnswer(question, userAnswer) {
 
 function startGame() {
   const playerName = greetPlayer();
-  console.log('Answer "yes" if given number is prime. Otherwise answer "no".');
+  gameСonditions();
 
   for (let i = 0; i < 3; i += 1) {
     const question = askQuestion();
