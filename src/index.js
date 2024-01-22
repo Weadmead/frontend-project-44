@@ -13,11 +13,26 @@ function getUserAnswer() {
   const userAnswer = readlineSync.question('Your answer: ');
   return userAnswer;
 }
-function gameСonditions() {
-  return console.log(
-    'Answer "yes" if given number is prime. Otherwise answer "no".',
-  );
+
+function startGame(askQuestion, checkAnswer, gameСonditions, print) {
+  const playerName = greetPlayer();
+  gameСonditions();
+  for (let i = 0; i < 3; i += 1) {
+    const question = askQuestion();
+    const userAnswer = getUserAnswer();
+    const correctAnswer = checkAnswer(question, userAnswer);
+
+    if (correctAnswer !== null) {
+      print(userAnswer, correctAnswer, playerName);
+      return;
+    }
+
+    console.log('Correct!');
+  }
+
+  console.log(`Congratulations, ${playerName}`);
 }
+
 export {
-  greetPlayer, getRandomNumber, getUserAnswer, gameСonditions,
+  getRandomNumber, startGame, greetPlayer, getUserAnswer,
 };

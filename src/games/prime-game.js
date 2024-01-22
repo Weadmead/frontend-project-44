@@ -1,11 +1,6 @@
-import {
-  greetPlayer,
-  getRandomNumber,
-  getUserAnswer,
-  gameСonditions,
-} from '../index.js';
+import { startGame, getRandomNumber } from '../index.js';
 
-function isPrime(number) {
+export function isPrime(number) {
   if (number <= 1) return false;
   for (let i = 2; i * i <= number; i += 1) {
     if (number % i === 0) return false;
@@ -13,37 +8,30 @@ function isPrime(number) {
   return true;
 }
 
-function askQuestion() {
+export function askQuestion() {
   const question = getRandomNumber() * 7;
   console.log(`Question: ${question}`);
   return question;
 }
 
-function checkAnswer(question, userAnswer) {
+export function checkAnswer(question, userAnswer) {
   const correctAnswer = isPrime(question) ? 'yes' : 'no';
-  return userAnswer === correctAnswer;
-}
-
-function startGame() {
-  const playerName = greetPlayer();
-  gameСonditions();
-
-  for (let i = 0; i < 3; i += 1) {
-    const question = askQuestion();
-    const userAnswer = getUserAnswer();
-
-    if (checkAnswer(question, userAnswer)) {
-      console.log('Correct!');
-    } else {
-      console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${
-        isPrime(question) ? 'yes' : 'no'
-      }'.
-            Let's try again, ${playerName}`);
-      return;
-    }
+  if (userAnswer !== correctAnswer) {
+    return correctAnswer;
   }
-
-  console.log(`Congratulations, ${playerName}`);
+  return null;
+}
+function gameСonditions() {
+  return console.log(
+    'Answer \'yes\' if given number is prime. Otherwise answer \'no\'',
+  );
+}
+export function print(userAnswer, correctAnswer, playerName) {
+  return console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.
+  Let's try again, ${playerName}`);
+}
+function startEvenGame() {
+  startGame(askQuestion, checkAnswer, gameСonditions, print);
 }
 
-export default startGame;
+export default startEvenGame;
