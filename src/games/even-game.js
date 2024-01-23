@@ -1,4 +1,4 @@
-import { getRandomNumber, startGame } from "../index.js";
+import { getRandomNumber, startGame } from '../index.js';
 
 function isEven(number) {
   return number % 2 === 0;
@@ -12,7 +12,7 @@ function askQuestion() {
 }
 
 function checkAnswer(answer, userAnswer) {
-  const correctAnswer = isEven(answer) ? "yes" : "no";
+  const correctAnswer = isEven(answer) ? 'yes' : 'no';
   if (userAnswer !== correctAnswer) {
     return correctAnswer;
   }
@@ -21,7 +21,7 @@ function checkAnswer(answer, userAnswer) {
 
 function gameСonditions() {
   return console.log(
-    'Answer "yes" if the number is even, otherwise answer "no".'
+    'Answer "yes" if the number is even, otherwise answer "no".',
   );
 }
 

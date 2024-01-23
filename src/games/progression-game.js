@@ -1,4 +1,4 @@
-import { startGame, getRandomNumber } from "../index.js";
+import { startGame, getRandomNumber } from '../index.js';
 
 function askQuestion() {
   const firstNumber = getRandomNumber();
@@ -11,8 +11,8 @@ function askQuestion() {
 
   const randomIndex = Math.floor(Math.random() * 10);
   const answer = result[randomIndex];
-  result[randomIndex] = "..";
-  console.log(`Question: ${result.join(" ")}`);
+  result[randomIndex] = '..';
+  console.log(`Question: ${result.join(' ')}`);
   return { result, answer };
 }
 
@@ -24,7 +24,7 @@ function checkAnswer(correctAnswer, userAnswer) {
 }
 
 function gameСonditions() {
-  return console.log("What number is missing in the progression?");
+  return console.log('What number is missing in the progression?');
 }
 function startProgGame() {
   startGame(askQuestion, checkAnswer, gameСonditions);

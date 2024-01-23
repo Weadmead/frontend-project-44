@@ -27,7 +27,7 @@ function startGame(askQuestion, checkAnswer, gameСonditions) {
 
     if (result !== null) {
       console.log(
-        `'${userAnswer}' is wrong answer ;(. Correct answer was '${result}'. Let's try again, ${playerName}!`
+        `'${userAnswer}' is wrong answer ;(. Correct answer was '${result}'. \n Let's try again, ${playerName}!`
       );
       return;
     }
