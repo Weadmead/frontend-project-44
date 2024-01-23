@@ -1,9 +1,9 @@
-// import readlineSync from 'readline-sync';
+import readlineSync from 'readline-sync';
 
-// const askName = () => readlineSync.question('May I have your name?: ');
+const askName = () => readlineSync.question('May I have your name?: ');
 
-// function getUserAnswer() {
-//   return readlineSync.question('Your answer: ');
-// }
+function getUserAnswer() {
+  return readlineSync.question('Your answer: ');
+}
 
-// export { askName, getUserAnswer };
+export { askName, getUserAnswer };

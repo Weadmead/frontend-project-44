@@ -1,8 +1,8 @@
-import readlineSync from "readline-sync";
+import readlineSync from 'readline-sync';
 
 function greetPlayer() {
-  console.log("Welcome to the Brain Games!");
-  const userName = readlineSync.question("May I have your name?: ");
+  console.log('Welcome to the Brain Games!');
+  const userName = readlineSync.question('May I have your name?: ');
   console.log(`Hello, ${userName}!`);
   return userName;
 }
@@ -12,7 +12,7 @@ function getRandomNumber() {
 }
 
 function getUserAnswer() {
-  const userAnswer = readlineSync.question("Your answer: ");
+  const userAnswer = readlineSync.question('Your answer: ');
   return userAnswer;
 }
 
@@ -30,10 +30,12 @@ function startGame(askQuestion, checkAnswer, gameСonditions) {
       Let's try again, ${playerName}`);
       return;
     }
-    console.log("Correct!");
+    console.log('Correct!');
   }
 
   console.log(`Congratulations, ${playerName}`);
 }
 
-export { getRandomNumber, startGame, greetPlayer, getUserAnswer };
+export {
+  getRandomNumber, startGame, greetPlayer, getUserAnswer,
+};
