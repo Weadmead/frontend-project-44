@@ -11,7 +11,8 @@ export function isPrime(number) {
 export function askQuestion() {
   const question = getRandomNumber() * 7;
   console.log(`Question: ${question}`);
-  return question;
+  const answer = question;
+  return { question, answer };
 }
 
 export function checkAnswer(question, userAnswer) {
@@ -23,15 +24,12 @@ export function checkAnswer(question, userAnswer) {
 }
 function gameСonditions() {
   return console.log(
-    'Answer \'yes\' if given number is prime. Otherwise answer \'no\'',
+    "Answer 'yes' if given number is prime. Otherwise answer 'no'",
   );
 }
-export function print(userAnswer, correctAnswer, playerName) {
-  return console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.
-  Let's try again, ${playerName}`);
-}
+
 function startEvenGame() {
-  startGame(askQuestion, checkAnswer, gameСonditions, print);
+  startGame(askQuestion, checkAnswer, gameСonditions);
 }
 
 export default startEvenGame;

@@ -1,4 +1,4 @@
-import { greetPlayer, getRandomNumber, getUserAnswer } from '../index.js';
+import { startGame, getRandomNumber } from '../index.js';
 
 function calculateGCD(num1, num2) {
   if (num2 === 0) {
@@ -12,32 +12,21 @@ function askQuestion() {
   const num2 = getRandomNumber();
   const question = `${num1} ${num2}`;
   const answer = calculateGCD(num1, num2);
+  console.log(`Question: ${question}`);
   return { question, answer };
 }
 
 function checkAnswer(correctAnswer, userAnswer) {
-  return correctAnswer === Number(userAnswer);
-}
-
-function startGame() {
-  const playerName = greetPlayer();
-  console.log('Find the greatest common divisor of given numbers.');
-
-  for (let i = 0; i < 3; i += 1) {
-    const { question, answer } = askQuestion();
-    console.log(`Question: ${question}`);
-    const userAnswer = getUserAnswer();
-
-    if (checkAnswer(answer, userAnswer)) {
-      console.log('Correct!');
-    } else {
-      console.log(`${userAnswer} is wrong answer ;(. Correct answer was ${answer}.
-            Let's try again, ${playerName}`);
-      return;
-    }
+  if (correctAnswer !== Number(userAnswer)) {
+    return correctAnswer;
   }
-
-  console.log(`Congratulations, ${playerName}`); // Уведомление о победе
+  return null;
+}
+function gameСonditions() {
+  return console.log('Find the greatest common divisor of given numbers.');
+}
+function startGcdGame() {
+  startGame(askQuestion, checkAnswer, gameСonditions);
 }
 
-export default startGame;
+export default startGcdGame;

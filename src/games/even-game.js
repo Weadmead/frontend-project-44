@@ -7,27 +7,26 @@ function isEven(number) {
 function askQuestion() {
   const question = getRandomNumber();
   console.log(`Question: ${question}`);
-  return question;
+  const answer = question;
+  return { question, answer };
 }
 
-function checkAnswer(question, userAnswer) {
-  const correctAnswer = isEven(question) ? 'yes' : 'no';
+function checkAnswer(answer, userAnswer) {
+  const correctAnswer = isEven(answer) ? 'yes' : 'no';
   if (userAnswer !== correctAnswer) {
     return correctAnswer;
   }
   return null;
 }
+
 function gameСonditions() {
   return console.log(
-    'Answer \'yes\' if given number is even. Otherwise answer \'no\'.',
+    "Answer 'yes' if given number is even. Otherwise answer 'no'.",
   );
 }
-export function print(userAnswer, correctAnswer, playerName) {
-  return console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.
-  Let's try again, ${playerName}`);
-}
+
 function startEvenGame() {
-  startGame(askQuestion, checkAnswer, gameСonditions, print);
+  startGame(askQuestion, checkAnswer, gameСonditions);
 }
 
 export default startEvenGame;

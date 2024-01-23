@@ -10,24 +10,25 @@ function askQuestion() {
   const num1 = getRandomNumber();
   const num2 = getRandomNumber();
   const operationIndex = Math.floor(Math.random() * operations.length);
-  const { question, calcAnswer } = operations[operationIndex](num1, num2);
+  const { question, answer } = operations[operationIndex](num1, num2);
 
   console.log(`Question: ${question}`);
-  return calcAnswer;
+  return { question, answer };
 }
 
-function checkAnswer(calcAnswer, userAnswer) {
-  if (calcAnswer !== Number(userAnswer)) {
-    return calcAnswer; // Возвращает правильный ответ, если пользователь ответил неверно
+function checkAnswer(correctAnswer, userAnswer) {
+  if (correctAnswer !== Number(userAnswer)) {
+    return correctAnswer;
   }
-  return null; // Возвращает null, если ответ верный
+  return null;
 }
 
 function gameСonditions() {
   return console.log('What is the result of the expression?');
 }
-function startEvenGame() {
+
+function startCalcGame() {
   startGame(askQuestion, checkAnswer, gameСonditions);
 }
 
-export default startEvenGame;
+export default startCalcGame;
