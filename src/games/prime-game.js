@@ -1,4 +1,4 @@
-import { startGame, getRandomNumber } from '../index.js';
+import { startGame, getRandomNumber } from "../index.js";
 
 export function isPrime(number) {
   if (number <= 1) return false;
@@ -16,7 +16,7 @@ export function askQuestion() {
 }
 
 export function checkAnswer(question, userAnswer) {
-  const correctAnswer = isPrime(question) ? 'yes' : 'no';
+  const correctAnswer = isPrime(question) ? "yes" : "no";
   if (userAnswer !== correctAnswer) {
     return correctAnswer;
   }
@@ -24,7 +24,7 @@ export function checkAnswer(question, userAnswer) {
 }
 function gameСonditions() {
   return console.log(
-    "Answer 'yes' if given number is prime. Otherwise answer 'no'",
+    'Answer "yes" if the number is even, otherwise answer "no".'
   );
 }
 
