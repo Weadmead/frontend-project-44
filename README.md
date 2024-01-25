@@ -23,11 +23,17 @@ git clone git@github.com:Weadmead/frontend-project-44.git
 make install
 
 Для запуска игр используйте команды:
+
 brain-games: Общее приветствие.
+
 brain-even: Определение четности числа.
+
 brain-calc: Вычисление арифметического выражения.
+
 brain-gcd: Нахождение наибольшего общего делителя.
+
 brain-progression: Поиск пропущенного числа в арифметической прогрессии.
+
 brain-prime: Определение, является ли число простым.
 
 ### Hexlet tests and linter status:
