@@ -19,7 +19,8 @@ function getUserAnswer() {
 function startGame(askQuestion, checkAnswer, gameСonditions) {
   const playerName = greetPlayer();
   gameСonditions();
-  for (let i = 0; i < 3; i += 1) {
+  const numberOfRounds = 3;
+  for (let i = 0; i < numberOfRounds; i += 1) {
     const { answer: correctAnswer } = askQuestion();
 
     const userAnswer = getUserAnswer();

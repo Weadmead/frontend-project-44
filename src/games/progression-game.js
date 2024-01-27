@@ -4,8 +4,12 @@ function askQuestion() {
   const firstNumber = getRandomNumber();
   const stepOfNumber = getRandomNumber();
   const result = [];
-
-  for (let i = firstNumber; result.length < 10; i += stepOfNumber) {
+  const maxProgressionLength = 10;
+  for (
+    let i = firstNumber;
+    result.length < maxProgressionLength;
+    i += stepOfNumber
+  ) {
     result.push(i);
   }
 
