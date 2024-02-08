@@ -1,4 +1,5 @@
-import { startGame, getRandomNumber } from '../index.js';
+import startGame from '../index.js';
+import getRandomNumber from '../utils.js';
 
 function calculateGCD(num1, num2) {
   if (num2 === 0) {

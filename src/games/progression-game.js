@@ -1,4 +1,5 @@
-import { startGame, getRandomNumber } from '../index.js';
+import startGame from '../index.js';
+import getRandomNumber from '../utils.js';
 
 function askQuestion() {
   const firstNumber = getRandomNumber();

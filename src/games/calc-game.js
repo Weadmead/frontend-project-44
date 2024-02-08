@@ -1,4 +1,5 @@
-import { getRandomNumber, startGame } from '../index.js';
+import startGame from '../index.js';
+import getRandomNumber from '../utils.js';
 
 const operations = [
   (num1, num2) => ({ question: `${num1} + ${num2}`, answer: num1 + num2 }),
