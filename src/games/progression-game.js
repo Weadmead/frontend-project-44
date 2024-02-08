@@ -1,11 +1,12 @@
-import startGame from '../index.js';
-import getRandomNumber from '../utils.js';
+import startGame from "../index.js";
+import getRandomNumber from "../utils.js";
 
-function askQuestion() {
+function generateProggresion() {
   const firstNumber = getRandomNumber();
   const stepOfNumber = getRandomNumber();
-  const result = [];
   const maxProgressionLength = 10;
+  const result = [];
+
   for (
     let i = firstNumber;
     result.length < maxProgressionLength;
@@ -13,12 +14,17 @@ function askQuestion() {
   ) {
     result.push(i);
   }
+  return result;
+}
 
-  const randomIndex = Math.floor(Math.random() * 10);
-  const answer = result[randomIndex];
-  result[randomIndex] = '..';
-  console.log(`Question: ${result.join(' ')}`);
-  return { result, answer };
+const hiddenIndex = Math.floor(Math.random() * 10);
+
+function askQuestion() {
+  const progression = generateProggresion();
+  const answer = progression[hiddenIndex];
+  progression[hiddenIndex] = "..";
+  console.log(`Question: ${progression.join(" ")}`);
+  return { progression, answer };
 }
 
 function checkAnswer(correctAnswer, userAnswer) {
@@ -29,7 +35,8 @@ function checkAnswer(correctAnswer, userAnswer) {
 }
 
 function gameСonditions() {
-  return console.log('What number is missing in the progression?');
+  const gameCondition = "What number is missing in the progression?";
+  return console.log(gameCondition);
 }
 function startProgGame() {
   startGame(askQuestion, checkAnswer, gameСonditions);
