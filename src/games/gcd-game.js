@@ -1,5 +1,5 @@
 import readlineSync from 'readline-sync';
-import getRandomNumber from '../utils.js';
+import { getRandomNumber, NUMBER_OF_ROUNDS } from '../utils.js';
 
 function calculateGCD(num1, num2) {
   if (num2 === 0) {
@@ -18,7 +18,6 @@ function askQuestion() {
 }
 
 function gcdGameFunction() {
-  const NUMBER_OF_ROUNDS = 3;
   const gameConditions = 'Find the greatest common divisor of given numbers.';
   console.log(gameConditions);
 

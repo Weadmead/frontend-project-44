@@ -1,4 +1,5 @@
 import readlineSync from 'readline-sync';
+import { NUMBER_OF_ROUNDS } from '../utils.js';
 
 export function isPrime(number) {
   if (number <= 1) return false;
@@ -16,7 +17,6 @@ export function askQuestion() {
 }
 
 function primeGameFunction() {
-  const NUMBER_OF_ROUNDS = 3;
   const gameConditions = 'Answer "yes" if given number is prime. Otherwise answer "no".';
   console.log(gameConditions);
 

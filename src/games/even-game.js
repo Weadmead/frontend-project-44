@@ -1,5 +1,5 @@
 import readlineSync from 'readline-sync';
-import getRandomNumber from '../utils.js';
+import { getRandomNumber, NUMBER_OF_ROUNDS } from '../utils.js';
 
 function isEven(number) {
   return number % 2 === 0;
@@ -13,7 +13,6 @@ function askQuestion() {
 }
 
 function evenGameFunction() {
-  const NUMBER_OF_ROUNDS = 3;
   const gameConditions = 'Answer "yes" if the number is even, otherwise answer "no".';
   console.log(gameConditions);
 

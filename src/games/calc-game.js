@@ -1,5 +1,5 @@
 import readlineSync from 'readline-sync';
-import getRandomNumber from '../utils.js';
+import { getRandomNumber, NUMBER_OF_ROUNDS } from '../utils.js';
 
 const operations = [
   (num1, num2) => ({ question: `${num1} + ${num2}`, answer: num1 + num2 }),
@@ -18,7 +18,6 @@ function askQuestion() {
 }
 
 function calcGameFunction() {
-  const NUMBER_OF_ROUNDS = 3;
   const gameConditions = 'What is the result of the expression?';
   console.log(gameConditions);
 

@@ -1,5 +1,5 @@
 import readlineSync from 'readline-sync';
-import getRandomNumber from '../utils.js';
+import { getRandomNumber, NUMBER_OF_ROUNDS } from '../utils.js';
 
 function generateProggresion() {
   const firstNumber = getRandomNumber();
@@ -28,7 +28,6 @@ function askQuestion() {
 }
 
 function progressionGameFunction() {
-  const NUMBER_OF_ROUNDS = 3;
   const gameConditions = 'What number is missing in the progression?';
   console.log(gameConditions);
 
