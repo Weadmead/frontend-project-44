@@ -1,4 +1,4 @@
-import startGame from '../index.js';
+import readlineSync from 'readline-sync';
 import getRandomNumber from '../utils.js';
 
 function isEven(number) {
@@ -12,22 +12,25 @@ function askQuestion() {
   return { question, answer };
 }
 
-function checkAnswer(answer, userAnswer) {
-  const correctAnswer = isEven(answer) ? 'yes' : 'no';
-  if (userAnswer !== correctAnswer) {
-    return correctAnswer;
+function evenGameFunction() {
+  const NUMBER_OF_ROUNDS = 3;
+  const gameConditions = 'Answer "yes" if the number is even, otherwise answer "no".';
+  console.log(gameConditions);
+
+  for (let i = 0; i < NUMBER_OF_ROUNDS; i += 1) {
+    const { answer: correctAnswer } = askQuestion();
+    const userAnswer = readlineSync.question('Your answer: ');
+    const isCorrectAnswer = isEven(correctAnswer) ? 'yes' : 'no';
+    if (isCorrectAnswer !== userAnswer) {
+      console.log(
+        `'${userAnswer}' is wrong answer ;(. Correct answer was '${isCorrectAnswer}'.`,
+      );
+      return false;
+    }
+    console.log('Correct!');
   }
-  return null;
+
+  return true;
 }
 
-function gameСonditions() {
-  return console.log(
-    'Answer "yes" if the number is even, otherwise answer "no".',
-  );
-}
-
-function startEvenGame() {
-  startGame(askQuestion, checkAnswer, gameСonditions);
-}
-
-export default startEvenGame;
+export default evenGameFunction;

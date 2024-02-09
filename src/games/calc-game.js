@@ -1,4 +1,4 @@
-import startGame from '../index.js';
+import readlineSync from 'readline-sync';
 import getRandomNumber from '../utils.js';
 
 const operations = [
@@ -17,19 +17,24 @@ function askQuestion() {
   return { question, answer };
 }
 
-function checkAnswer(correctAnswer, userAnswer) {
-  if (correctAnswer !== Number(userAnswer)) {
-    return correctAnswer;
+function calcGameFunction() {
+  const NUMBER_OF_ROUNDS = 3;
+  const gameConditions = 'What is the result of the expression?';
+  console.log(gameConditions);
+
+  for (let i = 0; i < NUMBER_OF_ROUNDS; i += 1) {
+    const { answer: correctAnswer } = askQuestion();
+    const userAnswer = readlineSync.question('Your answer: ');
+    if (correctAnswer !== Number(userAnswer)) {
+      console.log(
+        `'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`,
+      );
+      return false;
+    }
+    console.log('Correct!');
   }
-  return null;
+
+  return true;
 }
 
-function gameСonditions() {
-  return console.log('What is the result of the expression?');
-}
-
-function startCalcGame() {
-  startGame(askQuestion, checkAnswer, gameСonditions);
-}
-
-export default startCalcGame;
+export default calcGameFunction;

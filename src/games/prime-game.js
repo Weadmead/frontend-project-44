@@ -1,4 +1,4 @@
-import startGame from '../index.js';
+import readlineSync from 'readline-sync';
 
 export function isPrime(number) {
   if (number <= 1) return false;
@@ -15,21 +15,25 @@ export function askQuestion() {
   return { question, answer };
 }
 
-export function checkAnswer(question, userAnswer) {
-  const correctAnswer = isPrime(question) ? 'yes' : 'no';
-  if (userAnswer !== correctAnswer) {
-    return correctAnswer;
+function primeGameFunction() {
+  const NUMBER_OF_ROUNDS = 3;
+  const gameConditions = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+  console.log(gameConditions);
+
+  for (let i = 0; i < NUMBER_OF_ROUNDS; i += 1) {
+    const { answer: correctAnswer } = askQuestion();
+    const userAnswer = readlineSync.question('Your answer: ');
+    const isCorrectAnswer = isPrime(correctAnswer) ? 'yes' : 'no';
+    if (isCorrectAnswer !== userAnswer) {
+      console.log(
+        `'${userAnswer}' is wrong answer ;(. Correct answer was '${isCorrectAnswer}'.`,
+      );
+      return false;
+    }
+    console.log('Correct!');
   }
-  return null;
-}
-function gameСonditions() {
-  return console.log(
-    'Answer "yes" if given number is prime. Otherwise answer "no".',
-  );
+
+  return true;
 }
 
-function startEvenGame() {
-  startGame(askQuestion, checkAnswer, gameСonditions);
-}
-
-export default startEvenGame;
+export default primeGameFunction;

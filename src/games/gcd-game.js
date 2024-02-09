@@ -1,4 +1,4 @@
-import startGame from '../index.js';
+import readlineSync from 'readline-sync';
 import getRandomNumber from '../utils.js';
 
 function calculateGCD(num1, num2) {
@@ -17,17 +17,24 @@ function askQuestion() {
   return { question, answer };
 }
 
-function checkAnswer(correctAnswer, userAnswer) {
-  if (correctAnswer !== Number(userAnswer)) {
-    return correctAnswer;
+function gcdGameFunction() {
+  const NUMBER_OF_ROUNDS = 3;
+  const gameConditions = 'Find the greatest common divisor of given numbers.';
+  console.log(gameConditions);
+
+  for (let i = 0; i < NUMBER_OF_ROUNDS; i += 1) {
+    const { answer: correctAnswer } = askQuestion();
+    const userAnswer = readlineSync.question('Your answer: ');
+    if (correctAnswer !== Number(userAnswer)) {
+      console.log(
+        `'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`,
+      );
+      return false;
+    }
+    console.log('Correct!');
   }
-  return null;
-}
-function gameСonditions() {
-  return console.log('Find the greatest common divisor of given numbers.');
-}
-function startGcdGame() {
-  startGame(askQuestion, checkAnswer, gameСonditions);
+
+  return true;
 }
 
-export default startGcdGame;
+export default gcdGameFunction;
