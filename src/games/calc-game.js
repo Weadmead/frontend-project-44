@@ -1,5 +1,5 @@
 import readlineSync from 'readline-sync';
-import { getRandomNumber, NUMBER_OF_ROUNDS } from '../utils.js';
+import getRandomNumber from '../utils.js';
 
 const operations = [
   (num1, num2) => ({ question: `${num1} + ${num2}`, answer: num1 + num2 }),
@@ -18,10 +18,11 @@ function askQuestion() {
 }
 
 function calcGameFunction() {
-  const gameConditions = 'What is the result of the expression?';
-  console.log(gameConditions);
+  const calcGameConditions = 'What is the result of the expression?';
+  console.log(calcGameConditions);
+  const CALCGAME_ROUNDS = 3;
 
-  for (let i = 0; i < NUMBER_OF_ROUNDS; i += 1) {
+  for (let i = 0; i < CALCGAME_ROUNDS; i += 1) {
     const { answer: correctAnswer } = askQuestion();
     const userAnswer = readlineSync.question('Your answer: ');
     if (correctAnswer !== Number(userAnswer)) {

@@ -1,5 +1,5 @@
 import readlineSync from 'readline-sync';
-import { getRandomNumber, NUMBER_OF_ROUNDS } from '../utils.js';
+import getRandomNumber from '../utils.js';
 
 function isEven(number) {
   return number % 2 === 0;
@@ -13,10 +13,10 @@ function askQuestion() {
 }
 
 function evenGameFunction() {
-  const gameConditions = 'Answer "yes" if the number is even, otherwise answer "no".';
-  console.log(gameConditions);
-
-  for (let i = 0; i < NUMBER_OF_ROUNDS; i += 1) {
+  const evenGameConditions = 'Answer "yes" if the number is even, otherwise answer "no".';
+  console.log(evenGameConditions);
+  const EVENGAME_ROUNDS = 3;
+  for (let i = 0; i < EVENGAME_ROUNDS; i += 1) {
     const { answer: correctAnswer } = askQuestion();
     const userAnswer = readlineSync.question('Your answer: ');
     const isCorrectAnswer = isEven(correctAnswer) ? 'yes' : 'no';

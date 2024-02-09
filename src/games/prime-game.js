@@ -1,5 +1,4 @@
 import readlineSync from 'readline-sync';
-import { NUMBER_OF_ROUNDS } from '../utils.js';
 
 export function isPrime(number) {
   if (number <= 1) return false;
@@ -17,10 +16,10 @@ export function askQuestion() {
 }
 
 function primeGameFunction() {
-  const gameConditions = 'Answer "yes" if given number is prime. Otherwise answer "no".';
-  console.log(gameConditions);
-
-  for (let i = 0; i < NUMBER_OF_ROUNDS; i += 1) {
+  const primeGameConditions = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+  console.log(primeGameConditions);
+  const PRIMEGAME_ROUNDS = 3;
+  for (let i = 0; i < PRIMEGAME_ROUNDS; i += 1) {
     const { answer: correctAnswer } = askQuestion();
     const userAnswer = readlineSync.question('Your answer: ');
     const isCorrectAnswer = isPrime(correctAnswer) ? 'yes' : 'no';
