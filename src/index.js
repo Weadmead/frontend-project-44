@@ -1,18 +1,26 @@
 import readlineSync from 'readline-sync';
+import getRandomNumber from './utils.js';
 
-function startGame(gameFunction) {
+function startGame(gameFunction, gameConditions) {
   const greeting = 'Welcome to the Brain Games!';
   console.log(greeting);
   const userName = readlineSync.question('May I have your name?: ');
   console.log(`Hello, ${userName}!`);
-  const isWinner = gameFunction();
-
+  console.log(gameConditions);
+  const COUNT_OF_ROUNDS = 3;
+  const askUserAnswer = () => readlineSync.question('Your answer: ');
+  const { isSuccess, correctAnswer, userAnswer } = gameFunction(
+    getRandomNumber,
+    COUNT_OF_ROUNDS,
+    askUserAnswer,
+  );
   let message = '';
-  if (isWinner) {
+  if (isSuccess) {
     message += `Congratulations, ${userName}!`;
   } else {
-    message += `Let's try again, ${userName}!`;
+    message += `'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.\nLet's try again, ${userName}!`;
   }
   return console.log(message);
 }
+
 export default startGame;

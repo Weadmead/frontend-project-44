@@ -1,9 +1,4 @@
-import readlineSync from 'readline-sync';
-import getRandomNumber from '../utils.js';
-
-function generateProggresion() {
-  const firstNumber = getRandomNumber();
-  const stepOfNumber = getRandomNumber();
+function generateProggresion(firstNumber, stepOfNumber) {
   const maxProgressionLength = 10;
   const result = [];
 
@@ -18,32 +13,24 @@ function generateProggresion() {
 }
 
 const hiddenIndex = Math.floor(Math.random() * 10);
+const gameConditions = 'What number is missing in the progression?';
 
-function askQuestion() {
-  const progression = generateProggresion();
-  const answer = progression[hiddenIndex];
-  progression[hiddenIndex] = '..';
-  console.log(`Question: ${progression.join(' ')}`);
-  return { progression, answer };
-}
-
-function progressionGameFunction() {
-  const progressionGameConditions = 'What number is missing in the progression?';
-  console.log(progressionGameConditions);
-  const PROGRESSIONGAME_ROUNDS = 3;
-  for (let i = 0; i < PROGRESSIONGAME_ROUNDS; i += 1) {
-    const { answer: correctAnswer } = askQuestion();
-    const userAnswer = readlineSync.question('Your answer: ');
+function progressionGame(getRandomNumber, countOfRounds, askUserAnswer) {
+  for (let i = 0; i < countOfRounds; i += 1) {
+    const firstNumber = getRandomNumber();
+    const stepOfNumber = getRandomNumber();
+    const progression = generateProggresion(firstNumber, stepOfNumber);
+    const correctAnswer = progression[hiddenIndex];
+    progression[hiddenIndex] = '..';
+    console.log(`Question: ${progression.join(' ')}`);
+    const userAnswer = askUserAnswer();
     if (correctAnswer !== Number(userAnswer)) {
-      console.log(
-        `'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`,
-      );
-      return false;
+      return { isSuccess: false, userAnswer, correctAnswer };
     }
     console.log('Correct!');
   }
 
-  return true;
+  return { isSuccess: true };
 }
 
-export default progressionGameFunction;
+export { progressionGame, gameConditions };
