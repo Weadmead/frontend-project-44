@@ -10,11 +10,10 @@ const gameConditions = 'Answer "yes" if given number is prime. Otherwise answer 
 
 function primeGame(getRandomNumber, countOfRounds, askUserAnswer) {
   for (let i = 0; i < countOfRounds; i += 1) {
-    const question = getRandomNumber();
-    console.log(`Question: ${question}`);
-    const answer = question;
+    const questionPrimeGame = getRandomNumber();
+    console.log(`Question: ${questionPrimeGame}`);
     const userAnswer = askUserAnswer();
-    const correctAnswer = isPrime(answer) ? 'yes' : 'no';
+    const correctAnswer = isPrime(questionPrimeGame) ? 'yes' : 'no';
     if (correctAnswer !== userAnswer) {
       return { isSuccess: false, userAnswer, correctAnswer };
     }

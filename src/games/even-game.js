@@ -5,11 +5,10 @@ const gameConditions = 'Answer "yes" if the number is even, otherwise answer "no
 
 function evenGame(getRandomNumber, countOfRounds, askUserAnswer) {
   for (let i = 0; i < countOfRounds; i += 1) {
-    const question = getRandomNumber();
-    console.log(`Question: ${question}`);
-    const answer = question;
+    const questionEvenGame = getRandomNumber();
+    console.log(`Question: ${questionEvenGame}`);
     const userAnswer = askUserAnswer();
-    const correctAnswer = isEven(answer) ? 'yes' : 'no';
+    const correctAnswer = isEven(questionEvenGame) ? 'yes' : 'no';
     if (correctAnswer !== userAnswer) {
       return { isSuccess: false, userAnswer, correctAnswer };
     }
