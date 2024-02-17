@@ -1,13 +1,14 @@
 import readlineSync from 'readline-sync';
 import { getRandomNumber } from './utils.js';
 
+const COUNT_OF_ROUNDS = 3;
+
 function startGame(gameFunction, gameConditions) {
   const greeting = 'Welcome to the Brain Games!';
   console.log(greeting);
   const userName = readlineSync.question('May I have your name?: ');
   console.log(`Hello, ${userName}!`);
   console.log(gameConditions);
-  const COUNT_OF_ROUNDS = 3;
   const askUserAnswer = () => readlineSync.question('Your answer: ');
   const { isSuccess, correctAnswer, userAnswer } = gameFunction(
     getRandomNumber,
