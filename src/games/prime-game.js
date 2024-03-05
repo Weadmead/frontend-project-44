@@ -1,4 +1,4 @@
-import { playGame } from '../utils.js';
+// import { playGame } from '../utils.js';
 
 function isPrime(number) {
   if (number <= 1) return false;
@@ -10,14 +10,10 @@ function isPrime(number) {
 
 const gameConditions = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
-function primeGame(getRandomNumber, countOfRounds, askUserAnswer) {
-  const result = playGame(
-    isPrime,
-    getRandomNumber,
-    countOfRounds,
-    askUserAnswer,
-  );
-  return result;
+function primeGame(getRandomNumber) {
+  const question = getRandomNumber();
+  const correctAnswer = isPrime(question) ? 'yes' : 'no';
+  return { question, correctAnswer };
 }
 
 export { primeGame, gameConditions };

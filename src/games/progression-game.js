@@ -15,22 +15,15 @@ function generateProggresion(firstNumber, stepOfNumber) {
 const hiddenIndex = Math.floor(Math.random() * 10);
 const gameConditions = 'What number is missing in the progression?';
 
-function progressionGame(getRandomNumber, countOfRounds, askUserAnswer) {
-  for (let i = 0; i < countOfRounds; i += 1) {
-    const firstNumber = getRandomNumber();
-    const stepOfNumber = getRandomNumber();
-    const progression = generateProggresion(firstNumber, stepOfNumber);
-    const correctAnswer = progression[hiddenIndex];
-    progression[hiddenIndex] = '..';
-    console.log(`Question: ${progression.join(' ')}`);
-    const userAnswer = askUserAnswer();
-    if (correctAnswer !== Number(userAnswer)) {
-      return { isSuccess: false, userAnswer, correctAnswer };
-    }
-    console.log('Correct!');
-  }
+function progressionGame(getRandomNumber) {
+  const firstNumber = getRandomNumber();
+  const stepOfNumber = getRandomNumber();
+  const progression = generateProggresion(firstNumber, stepOfNumber);
+  const correctAnswer = progression[hiddenIndex];
+  progression[hiddenIndex] = '..';
+  const question = progression.join(' ');
 
-  return { isSuccess: true };
+  return { question, correctAnswer };
 }
 
 export { progressionGame, gameConditions };
